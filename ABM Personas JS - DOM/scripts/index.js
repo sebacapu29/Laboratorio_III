@@ -51,7 +51,8 @@ function crearBotones(id,operacion)
         botonModificar.style.marginBottom="10px";
         botonModificar.addEventListener("click",()=>{
             var personaModificar = obtenerPersonaDelForm(); 
-            modificarPersona(personaModificar);})
+            modificarPersona(personaModificar);
+        })
     
         var botonEliminar = document.createElement("input");
         botonEliminar.setAttribute("type","button");
@@ -95,6 +96,31 @@ function limpiarElementosHijos(idElemento){
     while (elemento.firstChild) {
         elemento.removeChild(elemento.firstChild);
     }
+}
+function datosFormularioRequeridos(){
+
+    var form = document.getElementById("divFrm");
+
+    var nombre = document.getElementById("first_name");
+    var apellido = document.getElementById("last_name");
+    var email = document.getElementById("email");
+
+    if(nombre.value == " "){
+        alert("Nombre Requerido");
+        nombre.focus();
+        return false;
+    }
+    if(apellido.value == " "){
+        alert("Apellido Requerido");
+        apellido.focus();
+        return false;
+    }
+    if(email.value == " "){
+        alert("Email Requerido");
+        email.focus();
+        return false;
+    }
+    return true;
 }
 function obtenerPersonaDelForm()
 {

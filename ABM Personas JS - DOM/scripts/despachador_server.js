@@ -19,8 +19,10 @@ function guardarPersona(persona) {
     
     xhr.open('POST',url,true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    console.log(body);
-    xhr.send(JSON.stringify(body));
+    if(datosFormularioRequeridos())
+    {
+      xhr.send(JSON.stringify(body));
+    }
   }
 
 function eliminarPersona(id) {
@@ -42,6 +44,8 @@ function modificarPersona(persona) {
   var url = "http://localhost:3000/modificar";
   xhr.open('POST',url,true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify(body));
-  console.log(body);
+
+  if(datosFormularioRequeridos()){
+    xhr.send(JSON.stringify(body));
+  }
 }
